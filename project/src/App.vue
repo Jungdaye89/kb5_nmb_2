@@ -2,4 +2,4 @@
 import { RouterLink, RouterView } from "vue-router";
 </script>
 
-<template></template>
+<template>hello</template>
