@@ -28,3 +28,4 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+node_modules/*
