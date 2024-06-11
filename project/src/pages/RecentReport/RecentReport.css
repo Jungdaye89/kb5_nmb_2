@@ -1,0 +1,12 @@
+.container {
+    background-color: orange;
+    font-family: sans-serif;
+    justify-content: center;
+}
+td {
+    background-color: brown;
+}
+label {
+    font-weight: bold;
+    font-size: large;
+}
