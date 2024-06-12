@@ -11,7 +11,7 @@ const router = createRouter({
       component: Home,
     },
     {
-      path: "/Cash/:no",
+      path: "/Cash/edit/:id",
       component: CashDetail,
     },
     {
