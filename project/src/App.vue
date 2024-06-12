@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import Home from '@/components/Home.vue';
 import Header from "@/components/Header.vue";
 </script>
 
@@ -11,4 +12,5 @@ import Header from "@/components/Header.vue";
         <MonthlyReport></MonthlyReport>
         <Summary></Summary>
     </div>
+
 </template>
