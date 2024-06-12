@@ -36,7 +36,6 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useDataStore } from "@/stores/db.js";
-import BarChart from "@/pages/MonthlyReport/BarChart.vue";
 
 const datastore = useDataStore();
 const data = computed(() => datastore.data);
