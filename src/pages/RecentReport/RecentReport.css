@@ -1,0 +1,12 @@
+.container {
+    background-color: #FFC000;
+    font-family: sans-serif;
+    justify-content: center;
+}
+td {
+    background-color: #776C60;
+}
+label {
+    font-weight: bold;
+    font-size: large;
+}
