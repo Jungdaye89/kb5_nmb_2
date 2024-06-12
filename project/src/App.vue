@@ -1,9 +1,15 @@
 <script setup>
-// import { RouterLink, RouterView } from "vue-router";
-import RecentReport from "@/pages/RecentReport/RecentReport.vue";
-import ReportTable from "@/pages/RecentReport/ReportTable.vue";
+import {
+  RouterLink,
+  RouterView,
+} from 'vue-router';
+import Header from '@/components/Header.vue';
 </script>
 
 <template>
+  <div class="container">
+    <Header></Header>
     <RecentReport />
+    <router-view></router-view>
+  </div>
 </template>

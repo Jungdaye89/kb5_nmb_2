@@ -1,25 +1,33 @@
-import { createRouter, createWebHistory } from "vue-router";
-import ReportTable from "../pages/RecentReport/ReportTable.vue";
+import {
+  createRouter,
+  createWebHistory,
+} from 'vue-router';
 
+import Home from '@/pages/Home.vue';
+import Profile from '@/pages/Profile.vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import ReportTable from '../pages/RecentReport/ReportTable.vue';
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
-    routes: [
-        // {
-        //     path: "/",
-        //     name: "Home",
-        //     component: Home,
-        // },
-        {
-            path: "/ReportTable",
-            name: "Table",
-            component: ReportTable,
-        },
-        // {
-        //     path: "/recent-report", // 경로를 추가합니다.
-        //     name: "RecentReport",
-        //     component: RecentReport, // 컴포넌트를 추가합니다.
-        // },
-    ],
+  history: createWebHistory(
+    import.meta.env.BASE_URL
+  ),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+    },
+    {
+      path: '/ReportTable',
+      name: 'Table',
+      component: ReportTable,
+    },
+    {
+      path: '/Profile',
+      name: 'Profile',
+      component: Profile,
+    },
+  ],
 });
 
 export default router;
