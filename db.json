@@ -493,6 +493,24 @@
       "income": "2323",
       "balance": "42423",
       "category": "봉급"
+    },
+    {
+      "id": "696f",
+      "date": "2024.06.24 18:00",
+      "content": "123123",
+      "expense": "",
+      "income": "123123",
+      "balance": "123123",
+      "category": "봉급"
+    },
+    {
+      "id": "574f",
+      "date": "2024.06.30 18:00",
+      "content": "쉬세요~",
+      "expense": "",
+      "income": "112",
+      "balance": "인냥",
+      "category": "용돈"
     }
   ]
 }

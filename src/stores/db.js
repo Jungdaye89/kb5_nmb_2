@@ -41,14 +41,14 @@ export const useDataStore = defineStore("data", () => {
   };
 
   // 데이터 삭제 함수 정의
-  const deleteData = async (date) => {
+  const deleteData = async (id) => {
     try {
-      const response = await axios.delete(url + `/${date}`);
+      const response = await axios.delete(url + `/${id}`);
       if (response.status === 200) {
-        let index = state.data.findIndex((content) => content.date === date);
+        let index = state.data.findIndex((content) => content.id === id);
         state.data.splice(index, 1);
       } else {
-        alert("Todo 삭제 실패");
+        alert("삭제 실패");
       }
     } catch (e) {
       alert("에러발생 :" + e);
@@ -56,16 +56,23 @@ export const useDataStore = defineStore("data", () => {
   };
 
   // 데이터 수정 함수 정의
-  const renewData = (date, content, expense, income, balance, category) => {
-    let index = state.data.findIndex((content) => content.date === date);
-    state.data[index] = {
-      date,
-      content,
-      expense,
-      income,
-      balance,
-      category,
-    };
+  const renewData = async (
+    { date, content, expense, income, balance, category },
+    successCallback
+  ) => {
+    try {
+      const payload = { date, content, expense, income, balance, category };
+      const response = await axios.put(url + `/${id}`, payload);
+      if (response.status === 200) {
+        let index = state.data.findIndex((content) => content.id === id);
+        state.data[id] = payload;
+        successCallback();
+      } else {
+        alert("수정 실패");
+      }
+    } catch (e) {
+      alert("에러발생 :" + e);
+    }
   };
   const data = computed(() => state.data);
   return { data, addData, deleteData, renewData, requestAPI };

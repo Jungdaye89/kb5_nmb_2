@@ -15,7 +15,7 @@
         <tr
           v-for="item in sortedData"
           :key="item.no"
-          @click="router.push(`/Cash/edit/${item.id}`)"
+          @click="goToDetail(item.id)"
         >
           <td>{{ item.date }}</td>
           <td>{{ item.content }}</td>
@@ -62,7 +62,13 @@
                 v-model="selectedType"
               />
             </td>
-            <td><input type="text" v-model="dataItem.date" /></td>
+            <td>
+              <input
+                type="text"
+                v-model="dataItem.date"
+                placeholder="yyyy.mm.dd hh:mm"
+              />
+            </td>
             <td>
               <input type="text" v-model="dataItem.content" />
             </td>
@@ -114,6 +120,12 @@ const route = useRoute();
 const convertToDate = (dateString) => {
   return moment(dateString, "YYYY.MM.DD HH:mm").toDate();
 };
+
+// 라우팅 함수
+function goToDetail(itemId) {
+  return router.push(`/Cash/edit/${itemId}`);
+}
+
 // 수입 지출 구분을 위한 변수 selectedType 선언
 const selectedType = ref("income");
 // Ensure data is initialized as an array
@@ -149,6 +161,11 @@ const addDataHandler = () => {
   }
   if (!dataItem.expense && !dataItem.income) {
     alert("금액을 입력해주세요!");
+    return;
+  }
+  if (isNaN(dataItem.expense) || isNaN(dataItem.income)) {
+    // 변경된 부분
+    alert("금액은 숫자로 입력해주세요!"); // 변경된 부분
     return;
   }
   if (!dataItem.category) {
