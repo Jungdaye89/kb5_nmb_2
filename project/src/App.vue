@@ -1,5 +1,9 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+// import { RouterLink, RouterView } from "vue-router";
+import RecentReport from "@/pages/RecentReport/RecentReport.vue";
+import ReportTable from "@/pages/RecentReport/ReportTable.vue";
 </script>
 
-<template>hello</template>
+<template>
+    <RecentReport />
+</template>
