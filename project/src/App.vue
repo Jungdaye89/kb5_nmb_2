@@ -3,7 +3,6 @@ import CashDetail from "@/pages/Cash/CashDetail.vue";
 import Cash from "@/pages/Cash/Cash.vue";
 import { useDataStore } from "@/stores/db.js";
 import { computed, onMounted, onUpdated } from "vue";
-import { RouterView } from "vue-router";
 import { RouterLink, RouterView } from "vue-router";
 import Home from '@/components/Home.vue';
 import Header from "@/components/Header.vue";
