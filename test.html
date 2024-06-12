@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+    <body>
+        <form>
+            <label>날짜 :</label>
+            <input type="text" class="form-control" id="date" placeholder="2024.06.11 12:16"/></br>
+            <label> 수입/지출 : </label>
+            <input type="radio" name="income_expense">수입</input>
+            <input type="radio" name="income_expense">지출</input></br>
+            <label>내용 :</label>
+            <input type="text" class="form-control" id="content" placeholder="내용을 입력해주세요"/></br>
+            <label>카테고리</label>
+            <select>
+                <optgroup label="수입">
+                    <option>식비</option>
+                    <option>교통</option>
+                    <option>공과금</option>
+                    <option>의료</option>
+                    <option>경조사</option>
+                    <option>금융</option>
+                    <option>여가</option>
+                </optgroup>
+                <optgroup label="지출">
+                    <option>봉급</option>
+                    <option>금융</option>
+                    <option>용돈</option>
+                    <option>기타</option>
+                </optgroup>
+            </select>
+            <button>수정</button>
+            <button>삭제</button>
+        </form>
+    </body>
+</html>
