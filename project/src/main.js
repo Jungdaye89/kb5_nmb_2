@@ -1,10 +1,9 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import 'bootstrap/dist/css/bootstrap.css';
-import moment from 'moment';
 import App from './App.vue';
 import router from './router';
-import '@/pages/RecentReport/RecentReport.css';
+import moment from 'moment';
 
 const app = createApp(App);
 

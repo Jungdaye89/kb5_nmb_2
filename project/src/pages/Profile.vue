@@ -1,6 +1,6 @@
 <template>
   <!-- TITLE  -->
-  <div class="container mt-5 mb-3">
+  <div class="container mt-5 mb-3 border">
     <div class="row">
       <div class="col">
         <div class="titleStyle">
@@ -14,7 +14,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <form>
+        <form class="container mb-3 border">
           <div class="mb-3 mt-3">
             <label for="name">이름</label>
             <input
@@ -148,6 +148,9 @@
             />
           </div>
         </form>
+        <br />
+        <br />
+        <br />
         <div
           class="container d-flex justify-content-end"
         >
@@ -155,12 +158,16 @@
             <div class="col">
               <button
                 type="submit"
-                class="btn btn-outline-dark"
+                class="btn btn-outline-secondary"
               >
                 저장
               </button>
+              <br />
             </div>
           </div>
+        </div>
+        <div class="container">
+          <br />
         </div>
       </div>
     </div>
