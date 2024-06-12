@@ -1,5 +1,6 @@
 <template>
   <div id="home" class="homecon container text-center py-5">
+    <!-- 동그라미 컨테이너 -->
     <div class="d-flex justify-content-around mb-4">
       <!-- 각 동그라미에 텍스트 추가 -->
       <div
@@ -14,12 +15,15 @@
         </router-link>
       </div>
     </div>
+    <!-- 구분선 추가 -->
+    <div class="separator"></div>
     <!-- 이미지 컨테이너 및 이미지 -->
     <div class="image-container">
-      <img src="./path/to/your/image.jpg" alt="Image" class="img-fluid" />
+      <img src="./path/to/your/image.gif" alt="GIF Image" class="img-fluid" />
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: 'Home',
@@ -42,6 +46,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .circle {
   width: 100px;
@@ -57,8 +62,15 @@ export default {
 }
 .image-container {
   width: 100%;
+  margin-top: 20px; /* 동그라미와 이미지 사이의 간격 조정 */
 }
 .homecon {
   background-color: white;
+}
+.separator {
+  width: 100%;
+  height: 2px;
+  background-color: #ccc; /* 구분선 색상 */
+  margin: 20px 0; /* 구분선 위아래 간격 조정 */
 }
 </style>
