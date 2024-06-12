@@ -9,6 +9,7 @@ import Header from '@/components/Header.vue';
 <template>
   <div class="container">
     <Header></Header>
+    <RecentReport />
     <router-view></router-view>
   </div>
 </template>
