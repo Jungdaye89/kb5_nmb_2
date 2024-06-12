@@ -47,7 +47,7 @@
       </select>
     </div>
     <div class="container mt-3">
-      <button @click="updateHandler(data.id)">수정</button>
+      <button @click="updateHandler()">수정</button>
       <button @click="deleteData(data.id)">삭제</button>
     </div>
   </div>
@@ -56,6 +56,13 @@
 import { useDataStore } from '@/stores/db.js';
 import { ref, computed, reactive} from "vue";
 import {useRouter, useRoute } from 'vue-router';
+import moment from "moment";
+
+
+const convertToDate = (dateString) => {
+  return moment(dateString, "YYYY.MM.DD HH:mm").toDate();
+};
+
 
 // 데이터 불러오기
 const datastore = useDataStore();
@@ -63,16 +70,16 @@ const {data, deleteData, renewData} = datastore;
 
 // 부모 데이터 불러오기 위한 currentRoute 선언
 const currentRoute = useRoute();
+const router = useRouter()
 
 // 수입 지출 구분을 위한 변수 selectedType 선언
 const selectedType = ref('income');
 
-console.log(currentRoute.fullPath)
 // data id로 수정할 데이터 찾기
 const dataItemIndex = data.find(
   (item)=> item.id === currentRoute.params.id
 );
-const dataItem = reactive({ ...data[dataItemIndex.value] });
+const dataItem = reactive({ ...data[dataItemIndex] });
 
 const updateHandler = () => {
   if (!dataItem.content || dataItem.content.trim() === "") {

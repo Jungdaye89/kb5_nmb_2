@@ -6,3 +6,17 @@
   },
   "exclude": ["node_modules", "dist"]
 }
+// {
+//   "compilerOptions": {
+//     "target": "ES6",
+//     "module": "commonjs",
+//     "checkJs": true,
+//     "jsx": "preserve"
+//   },
+//   "include": ["src/**/*"],
+//   "exclude": ["node_modules"],
+//   "typeAcquisition": {
+//     "enable": true,
+//     "include": ["estree"]
+//   }
+// }
