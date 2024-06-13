@@ -48,7 +48,7 @@
     </div>
     <div class="container mt-3">
       <button @click="updateHandler()">수정</button>
-      <button @click="deleteData(data.id)">삭제</button>
+      <button @click="deleteHandler()">삭제</button>
     </div>
   </div>
 </template>
@@ -80,7 +80,12 @@ const dataItemIndex = data.find(
   (item)=> item.id === currentRoute.params.id
 );
 const dataItem = reactive({ ...dataItemIndex });
-console.log(dataItem)
+
+const deleteHandler = () => {
+  deleteData(dataItem.id,()=>{
+    router.push("/Cash");
+  })
+}
 
 const updateHandler = () => {
   if (!dataItem.content || dataItem.content.trim() === "") {
