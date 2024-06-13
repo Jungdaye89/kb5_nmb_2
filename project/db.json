@@ -457,6 +457,33 @@
       "balance": 44724,
       "category": "용돈",
       "id": "de2e"
+    },
+    {
+      "id": "a7ea",
+      "date": "2024.06.04",
+      "content": "안녕",
+      "expense": "0",
+      "income": "122000",
+      "balance": 0,
+      "category": "봉급"
+    },
+    {
+      "id": "89ab",
+      "date": "2024.06.04 12:00",
+      "content": "안녕",
+      "expense": "0",
+      "income": "122000",
+      "balance": 0,
+      "category": "금융"
+    },
+    {
+      "id": "3870",
+      "date": "2024.08.30",
+      "content": "안녕 ",
+      "expense": "0",
+      "income": "1200",
+      "balance": 0,
+      "category": "봉급"
     }
   ]
 }

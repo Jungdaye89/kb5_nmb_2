@@ -49,12 +49,13 @@
     <div class="container mt-3">
       <button @click="updateHandler()">수정</button>
       <button @click="deleteHandler()">삭제</button>
+      <button @click="backHandler()">취소</button>
     </div>
   </div>
 </template>
 <script setup>
 import { useDataStore } from '@/stores/db.js';
-import { ref, computed, reactive} from "vue";
+import { ref, computed, reactive, onMounted} from "vue";
 import {useRouter, useRoute } from 'vue-router';
 import moment from "moment";
 
@@ -81,8 +82,34 @@ const dataItemIndex = data.find(
 );
 const dataItem = reactive({ ...dataItemIndex });
 
+const backHandler = () => {
+  router.push("/Cash");
+}
+
+const sortedData = ref([]);
+onMounted(async () => {
+  await dataStore.requestAPI();
+  sortedData.value = dataStore.data
+    .map((item) => ({
+      ...item,
+      date: convertToDate(item.date),
+    }))
+    .sort(sortByDate);
+});
+
+const recalculateBalances = () => {
+  let balance = 0;
+  sortedData.value.forEach((item) => {
+    const income = parseFloat(item.income) || 0;
+    const expense = parseFloat(item.expense) || 0;
+    balance += income - expense;
+    item.balance = balance;
+  });
+};
+
 const deleteHandler = () => {
   deleteData(dataItem.id,()=>{
+    recalculateBalances();
     router.push("/Cash");
   })
 }
@@ -106,6 +133,7 @@ const updateHandler = () => {
     return;
   }
   renewData({ ...dataItem }, () => {
+    recalculateBalances();
     router.push("/Cash");
   });
 };
