@@ -4,7 +4,7 @@ import Cash from "@/pages/Cash/Cash.vue";
 import { useDataStore } from "@/stores/db.js";
 import { computed, onMounted, onUpdated } from "vue";
 import { RouterLink, RouterView } from "vue-router";
-import Home from '@/components/Home.vue';
+import Home from '@/pages/Home.vue';
 import Header from "@/components/Header.vue";
 
 // 데이터 불러오기
