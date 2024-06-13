@@ -40,7 +40,7 @@
       </ul>
       <img
         class="rounded"
-        src="./data/KARINA.jpg"
+        src="../components/data/KARINA.jpg"
         width="40"
         height="40"
       />
@@ -48,7 +48,7 @@
         <router-link
           class="nav-link"
           to="/Profile"
-          >하승범 님</router-link
+          >{{ profileStore.name }} 님</router-link
         >
       </span>
     </div>
@@ -57,7 +57,9 @@
 
 <script setup>
 import { reactive, computed } from 'vue';
+import { useProfileStore } from '../stores/profile';
 
+const profileStore = useProfileStore();
 const state = reactive({ isNavShow: false });
 const navClass = computed(() =>
   state.isNavShow

@@ -14,10 +14,14 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <form class="container mb-3 border">
+        <form
+          @submit.prevent="saveProfile"
+          class="container mb-3 border"
+        >
           <div class="mb-3 mt-3">
             <label for="name">이름</label>
             <input
+              v-model="profile.name"
               type="text"
               class="form-control"
               id="name"
@@ -29,20 +33,25 @@
             <label for="gender">성별</label>
             <br />
             <input
+              v-model="profile.gender"
               type="radio"
               class="form-check-input me-2"
               id="male"
               value="male"
               name="gender"
               autocomplete="off"
-              checked
+              :checked="profile.gender === 'male'"
             />남자
             <input
+              v-model="profile.gender"
               type="radio"
               class="form-check-input me-2"
               id="female"
               value="female"
               name="gender"
+              :checked="
+                profile.gender === 'female'
+              "
             />여자
           </div>
           <div class="bir mb-3 mt-3">
@@ -53,6 +62,9 @@
               <div class="bir_yy flex-fill">
                 <span>
                   <input
+                    v-model="
+                      profile.birthdate.year
+                    "
                     type="text"
                     class="form-control"
                     id="yy"
@@ -64,62 +76,36 @@
               <div class="bir_mm flex-fill">
                 <span>
                   <select
+                    v-model="
+                      profile.birthdate.month
+                    "
                     class="form-select"
                     id="mm"
                   >
-                    <option>8</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>9</option>
-                    <option>10</option>
-                    <option>11</option>
-                    <option>12</option>
+                    <option
+                      v-for="month in 12"
+                      :key="month"
+                    >
+                      {{ month }}
+                    </option>
                   </select>
                 </span>
               </div>
               <div class="bir_dd flex-fill">
                 <span>
                   <select
+                    v-model="
+                      profile.birthdate.day
+                    "
                     class="form-select"
                     id="dd"
                   >
-                    <option>18</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                    <option>11</option>
-                    <option>12</option>
-                    <option>13</option>
-                    <option>14</option>
-                    <option>15</option>
-                    <option>16</option>
-                    <option>17</option>
-
-                    <option>19</option>
-                    <option>20</option>
-                    <option>21</option>
-                    <option>22</option>
-                    <option>23</option>
-                    <option>24</option>
-                    <option>25</option>
-                    <option>26</option>
-                    <option>27</option>
-                    <option>28</option>
-                    <option>29</option>
-                    <option>30</option>
-                    <option>31</option>
+                    <option
+                      v-for="day in 31"
+                      :key="day"
+                    >
+                      {{ day }}
+                    </option>
                   </select>
                 </span>
               </div>
@@ -128,6 +114,7 @@
           <div class="mb-3 mt-3">
             <label for="email">이메일</label>
             <input
+              v-model="profile.email"
               type="email"
               class="form-control"
               placeholder="changil01@gmail.com"
@@ -140,41 +127,49 @@
               >휴대폰 번호</label
             >
             <input
-              type="email"
+              v-model="profile.phonenumber"
+              type="text"
               class="form-control"
               id="phonenumber"
               name="phonenumber"
               placeholder="010-2934-9650"
             />
           </div>
-        </form>
-        <br />
-        <br />
-        <br />
-        <div
-          class="container d-flex justify-content-end"
-        >
-          <div class="row">
-            <div class="col">
-              <button
-                type="submit"
-                class="btn btn-outline-secondary"
-              >
-                저장
-              </button>
-              <br />
+          <div
+            class="container d-flex justify-content-end"
+          >
+            <div class="row">
+              <div class="col">
+                <button
+                  type="submit"
+                  class="btn btn-outline-secondary"
+                >
+                  저장
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="container">
-          <br />
-        </div>
+        </form>
       </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+import { useProfileStore } from '../stores/profile';
+import { useRouter } from 'vue-router';
+
+const profileStore = useProfileStore();
+const router = useRouter();
+
+const profile = ref({ ...profileStore.$state });
+
+const saveProfile = () => {
+  profileStore.updateProfile(profile.value);
+  router.push('/');
+};
+</script>
 
 <style>
 .titleStyle {
