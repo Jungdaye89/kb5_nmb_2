@@ -38,38 +38,43 @@ export default {
     onHover(index) {
       this.hoveredCircleIndex = index;
     },
-    // 호버가 해제될 때 인덱스를 초기화하는 메서드
-    onLeave() {
-      this.hoveredCircleIndex = null;
+    methods: {
+        // 호버된 동그라미의 인덱스를 저장하는 메서드
+        onHover(index) {
+            this.hoveredCircleIndex = index;
+        },
+        // 호버가 해제될 때 인덱스를 초기화하는 메서드
+        onLeave() {
+            this.hoveredCircleIndex = null;
+        },
     },
-  },
 };
 </script>
 
 <style scoped>
 .circle {
-  width: 100px;
-  height: 100px;
-  background-color: #fbda6b;
-  transition: background-color 0.3s;
-  text-decoration: none; /* router-link의 기본 스타일 제거 */
-  color: #776c60; /* 텍스트 색상 설정 */
-  flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #fbda6b;
+    transition: background-color 0.3s;
+    text-decoration: none; /* router-link의 기본 스타일 제거 */
+    color: #776c60; /* 텍스트 색상 설정 */
+    flex-shrink: 0;
 }
 .circle:hover {
-  background-color: #ffc000; /* 호버 시 배경색 변경 */
+    background-color: #ffc000; /* 호버 시 배경색 변경 */
 }
 .image-container {
-  width: 100%;
-  margin-top: 20px; /* 동그라미와 이미지 사이의 간격 조정 */
+    width: 100%;
+    margin-top: 20px; /* 동그라미와 이미지 사이의 간격 조정 */
 }
 .homecon {
-  background-color: white;
+    background-color: white;
 }
 .separator {
-  width: 100%;
-  height: 2px;
-  background-color: #ccc; /* 구분선 색상 */
-  margin: 20px 0; /* 구분선 위아래 간격 조정 */
+    width: 100%;
+    height: 2px;
+    background-color: #ccc; /* 구분선 색상 */
+    margin: 20px 0; /* 구분선 위아래 간격 조정 */
 }
 </style>
