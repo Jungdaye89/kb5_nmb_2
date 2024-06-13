@@ -16,9 +16,9 @@
                     <tr v-for="item in sortedData" :key="item.id">
                         <td>{{ formatDate(item.date) }}</td>
                         <td>{{ item.content }}</td>
-                        <td>{{ item.expense }}</td>
-                        <td>{{ item.income }}</td>
-                        <td>{{ item.balance }}</td>
+                        <td>{{ formatCurrency(item.expense) }}</td>
+                        <td>{{ formatCurrency(item.income) }}</td>
+                        <td>{{ formatCurrency(item.balance) }}</td>
                         <td>{{ item.category }}</td>
                     </tr>
                 </tbody>
@@ -43,7 +43,7 @@ const props = defineProps({
 
 // 날짜를 원하는 형식으로 변환하는 함수
 const formatDate = (date) => {
-    return moment(date).format("YYYY년 M월 D일 dddd h시 mm분");
+    return moment(date).format("M 월 D 일 ");
 };
 
 // 날짜를 Date 객체로 변환하는 함수
@@ -65,4 +65,16 @@ const sortByDate = (a, b) => {
 const sortedData = computed(() => {
     return props.filteredData.sort(sortByDate);
 });
+
+// 금액을 한국 회계 단위로 변환하는 함수
+const formatCurrency = (value) => {
+    if (value === null || value === undefined) {
+        return "0";
+    }
+    return value.toLocaleString("ko-KR", { style: "currency", currency: "KRW" }).replace("₩", "");
+};
 </script>
+
+<style scoped>
+/* 스타일을 여기에 추가할 수 있습니다. */
+</style>
