@@ -1,13 +1,7 @@
 <template>
-  <div
-    id="home"
-    class="homecon container text-center py-5"
-  >
+  <div id="home" class="homecon container text-center py-5">
     <!-- 동그라미 컨테이너 -->
-    <div
-      class="d-flex justify-content-around mb-4"
-    >
-      <!-- 각 동그라미에 텍스트 추가 -->
+    <div class="d-flex justify-content-around mb-4">
       <div
         class="d-flex justify-content-center align-items-center rounded-circle circle"
         v-for="(text, index) in circleTexts"
@@ -15,10 +9,7 @@
         @mouseover="onHover(index)"
         @mouseleave="onLeave"
       >
-        <router-link
-          to="#"
-          class="text-decoration-none text-dark"
-        >
+        <router-link to="#" class="text-decoration-none text-dark">
           {{ text }}
         </router-link>
       </div>
@@ -27,26 +18,18 @@
     <div class="separator"></div>
     <!-- 이미지 컨테이너 및 이미지 -->
     <div class="image-container">
-      <img
-        src="./path/to/your/image.gif"
-        alt="GIF Image"
-        class="img-fluid"
-      />
+      <img src="./path/to/your/image.gif" alt="GIF Image" class="img-fluid" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
+  name: "Home",
   data() {
     return {
       // 각 동그라미에 표시될 텍스트 배열
-      circleTexts: [
-        '거래내역',
-        '월별요약',
-        '가계부 쓰기',
-      ],
+      circleTexts: ["거래내역", "월별요약", "가계부 쓰기"],
       hoveredCircleIndex: null, // 호버된 동그라미의 인덱스를 추적
     };
   },

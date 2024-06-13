@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div class="container">
     <table class="table">
       <thead>
@@ -40,7 +41,6 @@
             <th>기재내용</th>
             <th v-if="selectedType === 'expense'">지출</th>
             <th v-if="selectedType === 'income'">수입</th>
-            <th>잔액</th>
             <th>카테고리</th>
           </tr>
         </thead>
@@ -79,9 +79,6 @@
               <input type="text" v-model="dataItem.income" />
             </td>
             <td>
-              <input type="text" v-model="dataItem.balance" />
-            </td>
-            <td>
               <select v-model="dataItem.category">
                 <optgroup v-if="selectedType === 'expense'">
                   <option>식비</option>
@@ -108,18 +105,18 @@
 </template>
 <script setup>
 import { useDataStore } from "@/stores/db.js";
-import { ref, computed, reactive, onMounted } from "vue";
+import { ref, computed, reactive, onMounted, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import moment from "moment";
 import { storeToRefs } from "pinia";
+import Header from "@/components/Header.vue";
 // 데이터 불러오기
 const dataStore = useDataStore();
 const addData = dataStore.addData;
 const router = useRouter();
 const route = useRoute();
-const convertToDate = (dateString) => {
-  return moment(dateString, "YYYY.MM.DD HH:mm").toDate();
-};
+const convertToDate = dataStore.convertToDate;
+const sortByDate = dataStore.sortByDate;
 
 // 라우팅 함수
 function goToDetail(itemId) {
@@ -139,20 +136,48 @@ onMounted(async () => {
     }))
     .sort(sortByDate);
 });
-// 날짜를 기준으로 객체를 정렬하는 비교 함수
-const sortByDate = (a, b) => {
-  return a.date - b.date; // 오름차순 정렬
-  // return b.date - a.date; // 내림차순 정렬
-};
+
 // 추가를 위한 dataItem 정의
 const dataItem = reactive({
   content: "",
-  income: "",
-  expense: "",
+  income: 0,
+  expense: 0,
   category: "",
-  balance: "",
+  balance: 0,
   date: "",
 });
+
+// 수입(`income`) 입력 변경 감지
+watch(
+  () => dataItem.income,
+  (newIncome, oldIncome) => {
+    if (newIncome !== "" && !isNaN(newIncome)) {
+      // 수입이 입력되면 지출을 0으로 설정
+      dataItem.expense = "0";
+    }
+  }
+);
+
+// 지출(`expense`) 입력 변경 감지
+watch(
+  () => dataItem.expense,
+  (newExpense, oldExpense) => {
+    if (newExpense !== "" && !isNaN(newExpense)) {
+      // 지출이 입력되면 수입을 0으로 설정
+      dataItem.income = "0";
+    }
+  }
+);
+
+const recalculateBalances = () => {
+  let balance = 0;
+  sortedData.value.forEach((item) => {
+    const income = parseFloat(item.income) || 0;
+    const expense = parseFloat(item.expense) || 0;
+    balance += income - expense;
+    item.balance = balance;
+  });
+};
 //조건에 맞으면 데이터 추가해주는 함수인 addDataHandler함수 선언
 const addDataHandler = () => {
   if (!dataItem.content || dataItem.content.trim() === "") {
@@ -176,6 +201,7 @@ const addDataHandler = () => {
     alert("날짜를 입력해주세요!");
     return;
   }
+
   addData({ ...dataItem }, async () => {
     await dataStore.requestAPI();
     sortedData.value = dataStore.data
@@ -184,6 +210,32 @@ const addDataHandler = () => {
         date: convertToDate(item.date),
       }))
       .sort(sortByDate);
+    recalculateBalances();
+    requestAPI();
   });
 };
 </script>
+
+<style>
+.container {
+  max-height: 400px; /* 원하는 높이로 설정 */
+  overflow-y: auto;
+  border: 1px solid #ddd; /* 테두리 추가 (선택 사항) */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse; /* 테이블 경계선이 겹치지 않도록 설정 */
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* 테이블 행 경계선 */
+}
+
+.table th {
+  background-color: #f4f4f4; /* 헤더 배경색 */
+}
+</style>
