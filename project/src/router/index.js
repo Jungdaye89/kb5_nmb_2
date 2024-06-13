@@ -6,9 +6,8 @@ import CashDetail from '@/pages/Cash/CashDetail.vue';
 import Cash from '@/pages/Cash/Cash.vue';
 import Home from '@/pages/Home.vue';
 import Profile from '@/pages/Profile.vue';
-import RecentReport from '../pages/RecentReport/RecentReport.vue';
-import MonthlyReport from '../pages/MonthlyReport/MonthlyReport.vue';
-import Summary from '../pages/MonthlyReport/Summary.vue';
+import RecentReport from '@/pages/RecentReport/RecentReport.vue';
+import MonthlyReport from '@/pages/MonthlyReport/MonthlyReport.vue';
 
 const router = createRouter({
   history: createWebHistory(
@@ -17,29 +16,27 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'Home',
       component: Home,
     },
     {
       path: '/Cash/edit/:id',
+      name: 'CashDetail',
       component: CashDetail,
     },
     {
       path: '/Cash',
+      name: 'Cash',
       component: Cash,
     },
     {
-      path: '/Summary',
-      name: 'Table',
-      component: Summary,
-    },
-    {
       path: '/MonthlyReport',
-      name: 'Table',
+      name: 'MonthlyReport',
       component: MonthlyReport,
     },
     {
       path: '/RecentReport',
-      name: 'Table',
+      name: 'RecentReport',
       component: RecentReport,
     },
     {

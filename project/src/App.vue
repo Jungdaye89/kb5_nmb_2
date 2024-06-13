@@ -40,9 +40,7 @@ const $pinkShadow = '#ffe3e2';
 
 <template>
   <div class="container">
-    <Header></Header>
     <router-view></router-view>
-    <RecentReport />
   </div>
 
   <button class="fastbutton" @click="addHandler">

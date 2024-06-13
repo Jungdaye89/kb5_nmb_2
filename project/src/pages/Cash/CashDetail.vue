@@ -58,6 +58,11 @@ import { useDataStore } from '@/stores/db.js';
 import { ref, computed, reactive, onMounted} from "vue";
 import {useRouter, useRoute } from 'vue-router';
 import moment from "moment";
+import Header from '@/components/Header.vue';
+import 'moment/locale/ko'; // 한국어 로케일 불러오기
+moment.locale('ko'); // 로케일 설정을 한국어로 변경
+
+
 
 
 const convertToDate = (dateString) => {
@@ -66,8 +71,8 @@ const convertToDate = (dateString) => {
 
 
 // 데이터 불러오기
-const datastore = useDataStore();
-const {data, deleteData, renewData} = datastore;
+const dataStore = useDataStore();
+const {data, deleteData, renewData} = dataStore;
 
 // 특정 데이터 불러오기 위한 currentRoute 선언
 const currentRoute = useRoute();
@@ -86,30 +91,9 @@ const backHandler = () => {
   router.push("/Cash");
 }
 
-const sortedData = ref([]);
-onMounted(async () => {
-  await dataStore.requestAPI();
-  sortedData.value = dataStore.data
-    .map((item) => ({
-      ...item,
-      date: convertToDate(item.date),
-    }))
-    .sort(sortByDate);
-});
-
-const recalculateBalances = () => {
-  let balance = 0;
-  sortedData.value.forEach((item) => {
-    const income = parseFloat(item.income) || 0;
-    const expense = parseFloat(item.expense) || 0;
-    balance += income - expense;
-    item.balance = balance;
-  });
-};
 
 const deleteHandler = () => {
   deleteData(dataItem.id,()=>{
-    recalculateBalances();
     router.push("/Cash");
   })
 }
@@ -133,7 +117,6 @@ const updateHandler = () => {
     return;
   }
   renewData({ ...dataItem }, () => {
-    recalculateBalances();
     router.push("/Cash");
   });
 };

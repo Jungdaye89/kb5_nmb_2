@@ -19,7 +19,7 @@
           <router-link
             class="nav-link"
             to="/Profile"
-            >&nbsp&nbsp하승범 님
+            >&nbsp&nbsp {{ profileStore.name }} 님
             환영합니다.</router-link
           >
         </span>
@@ -175,6 +175,9 @@ import {
 import { useRouter, useRoute } from 'vue-router';
 import moment from 'moment';
 import Chart from 'chart.js/auto';
+import { useProfileStore } from '../stores/profile';
+
+const profileStore = useProfileStore();
 
 const dataStore = useDataStore();
 const addData = dataStore.addData;
@@ -223,7 +226,6 @@ watch(
     });
     summary.netProfit =
       summary.totalIncome - summary.totalExpense;
-    console.log(summary);
   },
   { immediate: true }
 );
@@ -304,74 +306,34 @@ const chartData = computed(() => {
     ],
   };
 });
-
-// 차트 그리기
-onMounted(() => {
-  const ctx = document.getElementById(
-    'monthlyChart'
-  );
-  new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: Object.keys(
-        monthlySummary.value
-      ).map((month) => `${month}월`),
-      datasets: [
-        {
-          label: '월별 총 지출',
-          data: Object.values(
-            monthlySummary.value
-          ).map(
-            (summary) => summary.totalExpense
-          ),
-          backgroundColor: [
-            '#8D6E63',
-            '#CD853F',
-            '#A0522D',
-            '#D2691E',
-            '#B8860B',
-            '#8B4513',
-            '#A52A2A',
-            '#FF8C00',
-            '#DAA520',
-            '#B8860B',
-            '#006400',
-            '#556B2F',
-            '#8B4513',
-          ],
-        },
-      ],
-    },
-  });
-});
 </script>
 
 <style scoped>
 /* 배경 스타일 */
 .circle {
-    width: 100px;
-    height: 100px;
-    background-color: #fbda6b;
-    transition: background-color 0.3s;
-    text-decoration: none; /* router-link의 기본 스타일 제거 */
-    color: #776c60; /* 텍스트 색상 설정 */
-    flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  background-color: #fbda6b;
+  transition: background-color 0.3s;
+  text-decoration: none; /* router-link의 기본 스타일 제거 */
+  color: #776c60; /* 텍스트 색상 설정 */
+  flex-shrink: 0;
 }
 .circle:hover {
-    background-color: #ffc000; /* 호버 시 배경색 변경 */
+  background-color: #ffc000; /* 호버 시 배경색 변경 */
 }
 .image-container {
-    width: 100%;
-    margin-top: 20px; /* 동그라미와 이미지 사이의 간격 조정 */
+  width: 100%;
+  margin-top: 20px; /* 동그라미와 이미지 사이의 간격 조정 */
 }
 .homecon {
-    background-color: white;
+  background-color: white;
 }
 .separator {
-    width: 100%;
-    height: 2px;
-    background-color: #ccc; /* 구분선 색상 */
-    margin: 20px 0; /* 구분선 위아래 간격 조정 */
+  width: 100%;
+  height: 2px;
+  background-color: #ccc; /* 구분선 색상 */
+  margin: 20px 0; /* 구분선 위아래 간격 조정 */
 }
 /* table style */
 .bg-brown {
