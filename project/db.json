@@ -457,6 +457,24 @@
       "balance": 44724,
       "category": "용돈",
       "id": "de2e"
+    },
+    {
+      "id": "9c81",
+      "date": "2024.05.05",
+      "content": "1234",
+      "expense": "",
+      "income": "1234",
+      "balance": "1234",
+      "category": "봉급"
+    },
+    {
+      "id": "da26",
+      "date": "2024.05.05",
+      "content": "1234",
+      "expense": "",
+      "income": "1234",
+      "balance": "1234",
+      "category": "봉급"
     }
   ]
 }
