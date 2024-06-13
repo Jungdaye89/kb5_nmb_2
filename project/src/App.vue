@@ -13,6 +13,7 @@ import {
 } from 'vue-router';
 import Home from '@/pages/Home.vue';
 import Header from '@/components/Header.vue';
+import MonthlyReport from '@/pages/MonthlyReport/MonthlyReport.vue';
 
 // 데이터 불러오기
 const dataStore = useDataStore();
@@ -38,7 +39,12 @@ const $pinkShadow = '#ffe3e2';
 </script>
 
 <template>
-  <router-view></router-view>
+  <div class="container">
+    <Header></Header>
+    <router-view></router-view>
+    <RecentReport />
+  </div>
+
   <button class="fastbutton" @click="addHandler">
     가계부
   </button>
