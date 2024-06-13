@@ -397,13 +397,13 @@
       "id": "c476"
     },
     {
+      "id": "6a76",
       "date": "2024.05.24 12:57",
       "content": "맘스터치 건대로",
       "expense": 9400,
       "income": 0,
       "balance": 35324,
-      "category": "교통",
-      "id": "6a76"
+      "category": "식비"
     },
     {
       "date": "2024.06.02 23:20",
@@ -457,60 +457,6 @@
       "balance": 44724,
       "category": "용돈",
       "id": "de2e"
-    },
-    {
-      "id": "fbad",
-      "date": "123123",
-      "content": "123123",
-      "expense": "",
-      "income": "123123",
-      "balance": "123123",
-      "category": "봉급"
-    },
-    {
-      "id": "b15e",
-      "date": "2024.06.11",
-      "content": "123123",
-      "expense": "",
-      "income": "123123",
-      "balance": "123123",
-      "category": "봉급"
-    },
-    {
-      "id": "5391",
-      "date": "2024.06.11 18:00",
-      "content": "안녕하세요",
-      "expense": "",
-      "income": "백만원",
-      "balance": "오천만원",
-      "category": "기타"
-    },
-    {
-      "id": "6afd",
-      "date": "124123",
-      "content": "1423",
-      "expense": "",
-      "income": "2323",
-      "balance": "42423",
-      "category": "봉급"
-    },
-    {
-      "id": "696f",
-      "date": "2024.06.24 18:00",
-      "content": "123123",
-      "expense": "",
-      "income": "123123",
-      "balance": "123123",
-      "category": "봉급"
-    },
-    {
-      "id": "574f",
-      "date": "2024.06.30 18:00",
-      "content": "쉬세요~",
-      "expense": "",
-      "income": "112",
-      "balance": "인냥",
-      "category": "용돈"
     }
   ]
 }
