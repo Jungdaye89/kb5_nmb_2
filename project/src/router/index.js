@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
-
+import CashDetail from "@/pages/Cash/CashDetail.vue";
+import Cash from "@/pages/Cash/Cash.vue";
 import Home from "@/pages/Home.vue";
 import Profile from "@/pages/Profile.vue";
-import "bootstrap/dist/css/bootstrap.css";
 import RecentReport from "../pages/RecentReport/RecentReport.vue";
-import MonthlyReport from "../pages/MonthlyReport/MonthlyReport.vue";
+import MonthlyReport from "@/pages/MonthlyReport/MonthlyReport.vue";
 import Summary from "../pages/MonthlyReport/Summary.vue";
 
 const router = createRouter({
@@ -12,22 +12,29 @@ const router = createRouter({
     routes: [
         {
             path: "/",
-            name: "home",
             component: Home,
         },
         {
+            path: "/Cash/edit/:id",
+            component: CashDetail,
+        },
+        {
+            path: "/Cash",
+            component: Cash,
+        },
+        {
             path: "/Summary",
-            name: "Table",
+            name: "Summary",
             component: Summary,
         },
         {
             path: "/MonthlyReport",
-            name: "Table",
+            name: "MonthlyReport",
             component: MonthlyReport,
         },
         {
             path: "/RecentReport",
-            name: "Table",
+            name: "RecentReport",
             component: RecentReport,
         },
         {

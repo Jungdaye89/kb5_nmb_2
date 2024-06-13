@@ -45,7 +45,6 @@
 import { ref, computed } from 'vue';
 import { useDataStore } from '@/stores/db.js';
 import reportTable from '@/pages/RecentReport/ReportTable.vue';
-import '@/pages/RecentReport/RecentReport.css';
 
 const datastore = useDataStore();
 const { data } = datastore;
