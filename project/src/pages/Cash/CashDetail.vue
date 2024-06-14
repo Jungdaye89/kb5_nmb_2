@@ -55,10 +55,9 @@
 </template>
 <script setup>
 import { useDataStore } from '@/stores/db.js';
-import { ref, computed, reactive, onMounted} from "vue";
+import { ref, reactive} from "vue";
 import {useRouter, useRoute } from 'vue-router';
 import moment from "moment";
-import Header from '@/components/Header.vue';
 import 'moment/locale/ko'; // 한국어 로케일 불러오기
 moment.locale('ko'); // 로케일 설정을 한국어로 변경
 
