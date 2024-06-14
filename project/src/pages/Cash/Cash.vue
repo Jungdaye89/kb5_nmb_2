@@ -88,7 +88,6 @@
 <script setup>
 import { useDataStore } from "@/stores/db.js";
 import { ref, reactive, onMounted, watch } from "vue";
-s;
 import { useRouter, useRoute } from "vue-router";
 import moment from "moment";
 import Header from "@/components/Header.vue";
