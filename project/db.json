@@ -1,13 +1,13 @@
 {
   "data": [
     {
+      "id": "dee8",
       "date": "2024.06.05 13:33",
       "content": "지에스(GS)2",
       "expense": 2300,
       "income": 0,
       "balance": 403238,
-      "category": "여가",
-      "id": "dee8"
+      "category": "교통"
     },
     {
       "date": "2024.06.05 12:58",
@@ -37,13 +37,13 @@
       "id": "57a5"
     },
     {
+      "id": "c149",
       "date": "2024.06.04 20:50",
       "content": "쿠팡 주식회사",
       "expense": 21730,
       "income": 0,
       "balance": 622868,
-      "category": "식비",
-      "id": "c149"
+      "category": "금융"
     },
     {
       "date": "2024.06.04 13:07",
@@ -89,15 +89,6 @@
       "balance": 467798,
       "category": "의료",
       "id": "9ad8"
-    },
-    {
-      "date": "2024.06.02 21:21",
-      "content": "생마차홍대입구역",
-      "expense": 22300,
-      "income": 0,
-      "balance": 491226,
-      "category": "여가",
-      "id": "44fd"
     },
     {
       "date": "2024.06.02 18:22",
@@ -170,15 +161,6 @@
       "balance": 205456,
       "category": "경조사",
       "id": "4f7c"
-    },
-    {
-      "date": "2024.05.31 13:05",
-      "content": "롯데리아 건대입",
-      "expense": 12500,
-      "income": 0,
-      "balance": 211606,
-      "category": "경조사",
-      "id": "4121"
     },
     {
       "date": "2024.05.31 07:46",
@@ -397,15 +379,6 @@
       "id": "c476"
     },
     {
-      "id": "6a76",
-      "date": "2024.05.24 12:57",
-      "content": "맘스터치 건대로",
-      "expense": 9400,
-      "income": 0,
-      "balance": 35324,
-      "category": "식비"
-    },
-    {
       "date": "2024.06.02 23:20",
       "content": "하대오",
       "expense": 0,
@@ -454,6 +427,7 @@
       "date": "2024.05.24 12:57",
       "content": "KB 국민은행",
       "income": 44724,
+      "expense": 0,
       "balance": 44724,
       "category": "용돈",
       "id": "de2e"

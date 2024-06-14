@@ -1,5 +1,4 @@
 <template>
-
     <nav class="container">
         <div class="card card-head bg-light">
             <table class="table">
