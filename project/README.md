@@ -1,29 +1,23 @@
-# project
 
-This template should help get you started developing with Vue 3 in Vite.
+# 미팅
+* 오전
+  - 오늘 할 일, 어제 했던 일(데일리 스크럼) 작업 to do 공유
+* 퇴근 전
+  - 퇴근 전에는 이슈 내용 공유 (어떤 이슈가 있었는지)
+  - 내일 할 일 공유
 
-## Recommended IDE Setup
+# 코딩
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- 파일 추가 시 camel case로 제목 작성변수 생성 및 할당 시 코드 공유 (메모장같은 툴에 목록으로 작성)
+- 변수 역시도 일단 camel case로
+- 작성코드 작성 시 기능적인 부분에 주석으로 어떤 기능인지 설명을 달아주기
+- 오류 코드가 발생하면 오류 공유하기
+- 커밋 타이틀은 부모 컴포넌트 제목으로 (커밋 내용도 부모-자식 계층순으로 내용 정리하여 올리기)
 
-## Customize configuration
+# 깃
+- 5시부터는 깃 무조건 올려놓는 작업 시작하기 (이후 마무리 회의 이어서)
+- 커밋은 중간 중간 꼭 해주기
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+# 그 외
+- 칭찬 많이 해주기
+- 개인 업무 일지 공유 (슬랙에 업로드) -> 커밋한 내용 공유해도 됨.
